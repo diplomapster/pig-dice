@@ -2,11 +2,58 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="js/scripts.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.js"></script>
-    <title></title>
+    <script src="js/scripts.js"></script>
+    <title>Pig Dice</title>
   </head>
   <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Pig Dice</h1>
+        <p>A game of cunning and mastery!</p>
+      </div>
 
+      <div id="configure-game">
+        <form id="name-form">
+          <label for="number-of-players">Select Mode:</label>
+          <select class="form-control" id="number-of-players">
+            <option></option>
+            <option>Player vs. Player</option>
+            <option>Player vs. Computer</option>
+          </select>
+          <label for="player-one-name">Player 1, identify yourself!</label>
+          <input class="form-control" name="player-one-name" placeholder="Player 1"id="player-one-name"><br>
+          <label for="player-two-name">Player 2, who are you?!</label>
+          <input class="form-control" name="player-two-name" placeholder="Player 2"id="player-two-name">
+          <button class="btn btn-info" type="submit">Play!</button>
+        </form>
+      </div>
+
+      <div class="well" id>
+        <div class="row">
+          <div class="col-md-4">
+            <h5 id="player-one-name-display">Zach</h5>
+            <p>Score: <span id="player-one-total-score"></span></p>
+          </div>
+
+          <div class="col-md-4">
+            <h5 id="player-two-name-display">Brendan</h5>
+            <p>Score: <span id="player-two-total-score"></span></p>
+          </div>
+        </div>
+      </div>
+      <div id="dice-image">
+        <img id="dice" src="img/6.jpg" alt="6">
+      </div>
+        <!-- <p><span id="current-player-name"></span> rolled a: <span id="dice-showing"></span></p> -->
+        <p>Current Turn: <span id="current-player-name"></span> - <span id="turn-dice-score"></span></p>
+        <button id="roll-dice" class="btn btn-primary">Let's Roll!</button>
+        <button id="pass-turn" class ="btn btn-danger">Pass Turn</button>
+      </div>
+
+
+    </div>
   </body>
 </html>

@@ -5,11 +5,12 @@ function Player(userName) {
 }
 
 Player.prototype.newRoll = function() {
-  var currentRoll = roll();
+  currentRoll = roll();
   if(currentRoll === 1) {
     this.diceScore = 0;
     changeTurns();
-  } else if ((this.totalScore + this.diceScore + currentRoll) >= 30) {
+    newTurnUpdate();
+  } else if ((this.totalScore + this.diceScore + currentRoll) >= playTo) {
       this.totalScore += currentRoll;
       alert("You won!")
   } else {
@@ -39,10 +40,49 @@ var playerOne = new Player('Zach');
 var playerTwo = new Player('Brendan');
 
 var currentPlayer = playerOne;
+var currentRoll;
 
-
+var playTo = 50;
 //Front End Logic
+function midTurnUpdate(){
+  $("#turn-dice-score").text(currentPlayer.diceScore);
+  $("#dice-showing").text(currentRoll);
+  $("#dice-image").empty();
+  $("#dice-image").append('<img id="dice" src="img/' + currentRoll + '.jpg" alt="' + currentRoll + '">');
+}
 
-// var playerOne = new Player($("#username"));
-//
-// function update()
+function newTurnUpdate(){
+  currentRoll;
+  $("#current-player-name").text(currentPlayer.userName)
+  $("#player-one-total-score").text(playerOne.totalScore);
+  $("#player-two-total-score").text(playerTwo.totalScore);
+  $("#turn-dice-score").text(currentPlayer.diceScore);
+  $("#dice-showing").text(currentRoll);
+  $("#dice-image").empty();
+  $("#dice-image").append('<img id="dice" src="img/' + currentRoll + '.jpg" alt="' + currentRoll + '">');
+}
+
+function startGame(playerOneName, playerTwoName) {
+  playerOne.userName = playerOneName;
+  playerTwo.userName = playerTwoName;
+  $("#current-player-name").text(currentPlayer.userName)
+  $("#player-one-name-display").text(playerOneName);
+  $("#player-two-name-display").text(playerTwoName);
+  $('#configure-game').slideUp();
+}
+
+$(document).ready(function(){
+  newTurnUpdate();
+  $("#roll-dice").click(function(){
+    currentPlayer.newRoll();
+    midTurnUpdate();
+  });
+  $("#pass-turn").click(function(){
+    currentPlayer.saveScore();
+    newTurnUpdate();
+  });
+  $('#name-form').submit(function(event){
+    event.preventDefault();
+    startGame($('#player-one-name').val(), $('#player-two-name').val());
+  });
+});
