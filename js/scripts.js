@@ -72,6 +72,8 @@ function startGame(playerOneName, playerTwoName) {
 }
 
 $(document).ready(function(){
+  $('#player-one-name').val('Zach');
+  $('#player-two-name').val('Brendan');
   newTurnUpdate();
   $("#roll-dice").click(function(){
     currentPlayer.newRoll();
