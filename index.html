@@ -19,43 +19,49 @@
         <form id="name-form">
           <label for="number-of-players">Select Mode:</label>
           <select class="form-control" id="number-of-players">
-            <option></option>
-            <option>Player vs. Player</option>
-            <option>Player vs. Computer</option>
+            <option value="1">Player vs. Player</option>
+            <option value="2">Player vs. Computer</option>
+            <option value="3">Computer vs. Computer</option>
           </select>
           <label for="player-one-name">Player 1, identify yourself!</label>
           <input class="form-control" name="player-one-name" id="player-one-name"><br>
           <label for="player-two-name">Player 2, who are you?!</label>
           <input class="form-control" name="player-two-name" id="player-two-name">
+          <label for="play-to-points">How many points are we playing to?</label>
+          <input class="form-control" type="number" name="play-to-points" id="play-to-points">
           <button class="btn btn-info" type="submit">Play!</button>
         </form>
       </div> <br>
-
+      <div id="game-info">
+        <p><span id="player-one-info-name"></span> is playing <span id="player-two-info-name"></span>. First to <span id="play-to-display"></span> points wins!</p>
+      </div>
       <div class="card">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-3">
             <h5 id="player-one-name-display">Zach</h5>
             <p>Score: <span id="player-one-total-score"></span></p>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-3">
             <h5 id="player-two-name-display">Brendan</h5>
             <p>Score: <span id="player-two-total-score"></span></p>
           </div>
         </div>
       </div>
 
-      <div id="dice-image">
-        <img id="dice" src="img/6.jpg" alt="6">
+      <div id="gamePlay">
+        <div id="dice-image"></div>
 
+        <p><span id="current-player-name"></span>, it's your turn!</p>
+        <p>Current Turn Total: <span id="turn-dice-score"></span></p>
+        <button id="roll-dice" class="btn btn-primary" disabled>Let's Roll!</button>
+        <button id="pass-turn" class ="btn btn-danger" disabled>Pass Turn</button>
       </div>
-        <!-- <p><span id="current-player-name"></span> rolled a: <span id="dice-showing"></span></p> -->
-        <p>Current Turn: <span id="current-player-name"></span> - <span id="turn-dice-score"></span></p>
-        <button id="roll-dice" class="btn btn-primary">Let's Roll!</button>
-        <button id="pass-turn" class ="btn btn-danger">Pass Turn</button>
+      <div id="winImage">
+        <img src="img/win.gif" alt="pig dancing gif.">
+        <p>Well done <strong><span id="winner-name"></span></strong>!</p>
+        <button id="play-again" class="btn btn-primary">Do it again!</button>
       </div>
-
-
     </div>
   </body>
 </html>

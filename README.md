@@ -13,15 +13,3 @@
 4. When pass button clicked score added to total score
   Input: pass button click
   Output: 7 points added to your total score
-
-
-
-
-
-Current player
-Player 1 running total
-Player 2 running total
-Current player dice value field
-
-Button = roll
-Button = pass

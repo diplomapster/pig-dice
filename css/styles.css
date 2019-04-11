@@ -1,7 +1,13 @@
-#buttons-area {
-  display:
+#winImage {
+  display: none;
 }
 #configure-game{
-  background-color: lightgray;
-  justify-content: center;
+}
+
+#current-player-name {
+  font-weight: bold;
+}
+
+#game-info {
+  display: none;
 }
